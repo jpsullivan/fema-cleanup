@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
+<title><!-- TemplateBeginEditable name="PageHeader" -->Main Files (Usage)<!-- TemplateEndEditable --></title>
+</head>
+<body onload="self.focus()" class="popUpPage">
+<a name="top"></a>
+<div class="skip_nav"><a href="#content" class="skipnav" title="Skip to content">Skip to content</a></div>
+    <div id="maincontent">
+	    <div class="header">
+			<div class="sealAndLogo">
+				<img src="images/dhsSeal.png" alt="U.S. Department of Homeland Security Seal" />
+				<img src="images/femaLogo.png" alt="FEMA Logo; Federal Emergency Management Agency" class="femaLogo" />
+			</div>
+			<div class="innerHead">
+				<h1 id='headText'>Main Files (Usage)</h1>	
+			</div>
+		    <div class="rightNav">
+				
+				<a href="javascript:window.close()"><img src="images/close.png" alt="Close" /></a>
+			</div>            
+		</div>
+			<div id="allLessons"><!-- TemplateBeginEditable name="MainContent" -->
+				<p><strong>ismanifest.xml</strong></p><p>The ismanifest.xml file holds the structure and file hierarchy.  It contains references to all page-content files.  The references to each of these resources are required.  This file is called upon by the "SMPLIndex.htm" file and the information within helps build the actual course.  It is important that this file is formatted correctly.  Open up the "ismanifext.xml" file and add your lessons and all resrouces in the format that is used within this template.</p>
+				<p><strong>index.htm</strong></p><p>The first file that users will see is the splash screen. This file should always be named index.htm.  It contains a collage of images related to the current course along with the course code and title.  Follow the format found in this example template.</p>
+				<p><strong>indexMenu.htm</strong></p>The Course Menu file should be named indexMenu.htm.  This is the screen where the student gets a list of all of the lesson titles and links to the lessons.  In a single-lesson course, the index.htm page directly launches the lesson.  If you have properly developed/modified the ismanifest.xml file, you should not have to make any changes to the indexMenu.htm file.  This file automatically pulls the lessons (codes, titles, and links) from the ismanifest.xml file. </p>
+				<p><strong>SMPLIndex.htm</strong></p>The final "main structure" file is the SMPLIndex.htm file.  This acts as the main page for all content.  It is used as a holder/frame for each individual page.  These individual pages are loaded within.  This can/should be renamed to something appropriate and related to the current course.  Again, the contents of this file should not need to be modified if the ismanifest.xml file was developed correctly.  It will automatically pull the individual page files from the &lt;resources&gt;&lt;resource&gt; section for each lesson.</p>
+			<!-- TemplateEndEditable --></div>
+	</div>
+</div>
+</body>
+</html>

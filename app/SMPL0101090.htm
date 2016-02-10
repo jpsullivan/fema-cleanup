@@ -1,0 +1,31 @@
+<div id="box1">
+	<div id="wrapper">       
+		<div id="content" align="left"><a name="content"></a>
+			<h3><!-- TemplateBeginEditable name="PageHead" -->Main Files (Usage)<!-- TemplateEndEditable --></h3>
+<div class="content-main left fifty-fifty">
+<!-- TemplateBeginEditable name="ContentAndLinks" -->
+<script type="text/javascript">
+	
+	var contentArray = ['', 
+	'<p><strong>ismanifest.xml</strong></p><p>The ismanifest.xml file holds the structure and file hierarchy.  It contains references to all page-content files.  The references to each of these resources are required.  This file is called upon by the "SMPLIndex.htm" file and the information within helps build the actual course.  It is important that this file is formatted correctly.  Open up the "ismanifext.xml" file and add your lessons and all resrouces in the format that is used within this template.</p>', 
+	'<p><strong>index.htm</strong></p><p>The first file that users will see is the splash screen. This file should always be named index.htm.  It contains a collage of images related to the current course along with the course code and title.  Follow the format found in this example template.</p>',
+	'<p><strong>indexMenu.htm</strong></p>The Course Menu file should be named indexMenu.htm.  This is the screen where the student gets a list of all of the lesson titles and links to the lessons.  In a single-lesson course, the index.htm page directly launches the lesson.  If you have properly developed/modified the ismanifest.xml file, you should not have to make any changes to the indexMenu.htm file.  This file automatically pulls the lessons (codes, titles, and links) from the ismanifest.xml file. </p>',
+	'<p><strong>SMPLIndex.htm</strong></p>The final “main structure” file is the SMPLIndex.htm file.  This acts as the main page for all content.  It is used as a holder/frame for each individual page.  These individual pages are loaded within.  This can/should be renamed to something appropriate and related to the current course.  Again, the contents of this file should not need to be modified if the ismanifest.xml file was developed correctly.  It will automatically pull the individual page files from the <resources><resource> section for each lesson.</p>'];	
+</script>
+	<p>The following files must be included in every course.  Click on each for more information about it's usage:</p>	
+	<ul>
+		<li><a href="javascript:revealContent(contentArray[1]);">ismanifest.xml</a></li>
+		<li><a href="javascript:revealContent(contentArray[2]);">index.htm</a></li>
+		<li><a href="javascript:revealContent(contentArray[3]);">indexMenu.htm</a></li>
+		<li><a href="javascript:revealContent(contentArray[4]);">SMPLIndex.htm</a></li>
+	</ul>
+	<p><img src="images/iconPrint.gif" alt="printer" class="left accentImage" /><a href="javascript:SendMeSummary('SMPL0101090text.htm')">Click this link to access a summary information found on this page.</a></p>
+<!-- TemplateEndEditable -->
+</div>		
+		  <div id="revealedContent"><!-- TemplateBeginEditable name="revealedContent" -->
+		    <p class="instruction">Click on each link to reveal information about it's purpose and usage.</p>
+		  <!-- TemplateEndEditable --></div>		
+		  			
+		</div><!-- end #content -->	
+	</div><!-- end #wrapper -->	
+</div><!-- end #box1 -->

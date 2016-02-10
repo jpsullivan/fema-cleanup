@@ -1,0 +1,90 @@
+﻿<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en"><!-- InstanceBegin template="/Templates/FrameSet.dwt" codeOutsideHTMLIsLocked="false" --> 
+<head><meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>IS-0000 Emergency Management Institute Sample Course Template - Lesson Menu</title>
+    
+    
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="css/jquery-ui.theme.min.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="css/jquery-ui.structure.min.css" rel="stylesheet" type="text/css" media="screen" />
+	<script src="scripts/jquery-min.js"></script>
+    <script src="scripts/jquery.cookie.js" type="text/javascript"></script>
+    <script type="text/javascript">
+		function LoadLesson(url)
+		{
+			vwidth = 1024;
+			vheight =700;
+			sWidth = screen.width;
+			tWidth = (sWidth/2);
+			hWidth = (vwidth/2);
+			uWidth = (tWidth-hWidth);
+		
+			
+			FBwin=window.open(url,"Lesson","toolbar=no,location=no,directories=no,status=no,scrollbars=yes,menubar=no,resizable=yes,width=" + vwidth + ",height=" + vheight + ",left=" + uWidth + ",top=0");
+		}
+	
+        $(document).ready(function () {
+
+            //Prepare cookies
+            var completedList = new cookieList("lesson1");
+            var lesson1ListItems = $(".lesson1").children();
+            var itemCount = 1;
+            $(".lesson1 > li").each(function () {
+                if (completedList.exists(itemCount.toString()))
+                    $(this).addClass("completed");
+                itemCount++;
+            });
+			
+			$.ajax({
+				type: "GET",
+				url: "imsmanifest.xml",
+				dataType: "xml",
+				success: function(xml) {
+					var dict = {};
+					var res = $(xml).find('resources');
+					res.find('resource').each(function() {
+					dict[$(this).attr('identifier')+''] = $(this).attr('href')+'';
+					
+					});
+					$(xml).find('item').each(function() {
+						var id = $(this).attr('identifier')+'';
+						var idRef = $(this).attr('identifierref')+'';
+						var title = $(this).find('title').text();
+						$('<p><a href="javascript:LoadLesson(&quot;'+dict[idRef]+'&quot;)">'+title+'</a></p>').appendTo('#allLessons');
+						
+					});
+				}
+			});
+        });
+    </script>
+	
+	</head>
+<body>
+    <div class="skip_nav"><a href="#content" class="skipnav" title="Skip to content">Skip to content</a></div>
+    <div id="maincontent">
+	    <div class="header">
+			<div class="sealAndLogo">
+				<img src="images/dhsSeal.png" alt="Department of Homeland Security Seal" />
+				<img src="images/femaLogo.png" alt="FEMA Logo; Federal Emergency Management Agency" class="femaLogo" />
+			</div>
+			<div class="innerHead">
+				<h1 id='headText'>IS-0000 Emergency Management Institute Sample Course Template</h1>	
+			</div>
+		    <div class="rightNav">
+				
+			</div>
+			
+			<!--<h2>Lesson 2: Basic Overview of Continuity</h2>-->
+            
+	    </div><!-- end #header -->	
+        <div id="allLessons">
+		</div>	
+    
+          	
+        	
+    </div><!-- end #maincontent -->
+
+</body>
+    
+					

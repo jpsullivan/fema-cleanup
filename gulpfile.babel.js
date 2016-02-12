@@ -33,6 +33,7 @@ import swPrecache from 'sw-precache';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import {output as pagespeed} from 'psi';
 import pkg from './package.json';
+import browserify from 'gulp-browserify';
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -104,25 +105,42 @@ gulp.task('styles', () => {
 // Concatenate and minify JavaScript. Optionally transpiles ES2015 code to ES5.
 // to enables ES2015 support remove the line `"only": "gulpfile.babel.js",` in the
 // `.babelrc` file.
+
 gulp.task('scripts', () =>
-    gulp.src([
-      // Note: Since we are not using useref in the scripts build pipeline,
-      //       you need to explicitly list your scripts here in the right order
-      //       to be correctly concatenated
-      './app/scripts/main.js'
-      // Other scripts
-    ])
-      .pipe($.newer('.tmp/scripts'))
-      .pipe($.sourcemaps.init())
-      .pipe($.babel())
-      .pipe($.sourcemaps.write())
-      .pipe(gulp.dest('.tmp/scripts'))
-      .pipe($.concat('main.min.js'))
-      .pipe($.uglify({preserveComments: 'some'}))
-      // Output files
-      .pipe($.size({title: 'scripts'}))
-      .pipe($.sourcemaps.write('.'))
-      .pipe(gulp.dest('dist/scripts'))
+    // gulp.src([
+    //   // Note: Since we are not using useref in the scripts build pipeline,
+    //   //       you need to explicitly list your scripts here in the right order
+    //   //       to be correctly concatenated
+    //   './app/scripts/main.js'
+    //   // Other scripts
+    // ])
+    //   .pipe($.newer('.tmp/scripts'))
+    //   .pipe($.sourcemaps.init())
+    //   .pipe($.babel())
+    //   .pipe($.sourcemaps.write())
+    //   .pipe(gulp.dest('.tmp/scripts'))
+    //   .pipe($.concat('main.min.js'))
+    //   .pipe($.uglify({preserveComments: 'some'}))
+    //   // Output files
+    //   .pipe($.size({title: 'scripts'}))
+    //   .pipe($.sourcemaps.write('.'))
+    //   .pipe(gulp.dest('dist/scripts'))
+
+  gulp.src('./app/scripts/page-builder/app.js')
+    .pipe($.newer('.tmp/scripts'))
+    .pipe($.sourcemaps.init())
+    .pipe(browserify({
+        insertGlobals : true,
+        debug : true
+    }))
+    .pipe($.sourcemaps.write())
+    .pipe(gulp.dest('.tmp/scripts/page-builder'))
+    .pipe($.concat('page-builder.min.js'))
+    .pipe($.uglify({preserveComments: 'some'}))
+    // Output files
+    .pipe($.size({title: 'scripts'}))
+    .pipe($.sourcemaps.write('.'))
+    .pipe(gulp.dest('dist/scripts/page-builder'))
 );
 
 // Scan your HTML for assets & optimize them
@@ -180,7 +198,7 @@ gulp.task('serve', ['scripts', 'styles'], () => {
 
   gulp.watch(['app/**/*.htm'], reload);
   gulp.watch(['app/styles/**/*.{scss,css}'], ['styles', reload]);
-  gulp.watch(['app/scripts/**/*.js'], ['lint', 'scripts']);
+  gulp.watch(['app/scripts/**/*.js'], ['scripts']);
   gulp.watch(['app/images/**/*'], reload);
 });
 

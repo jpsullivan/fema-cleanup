@@ -5,11 +5,18 @@ var Marionette = require('backbone.marionette');
 var PageBuilderController = Marionette.Object.extend({
     initialize: function (options) {
         this.app = options.app;
-        debugger;
     },
 
     start: function () {
         this.manifest = this._initManifestData();
+    },
+
+    lessonBuilder: function () {
+        debugger;
+    },
+
+    stepBuilder: function () {
+        debugger;
     },
 
     _initManifestData: function () {

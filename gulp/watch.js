@@ -32,6 +32,11 @@ module.exports = function(gulp, plugins, args, config, taskTarget, browserSync) 
         path.join(dirs.source, dirs.images, '**/*.{jpg,jpeg,gif,svg,png}')
       ], ['imagemin']);
 
+      // Templates
+      gulp.watch([
+        path.join(dirs.source, dirs.templates, '**/*.hbs')
+    ], ['handlebars']);
+
       // All other files
       gulp.watch([
         path.join(dirs.temporary, '**/*'),

@@ -37,6 +37,7 @@ gulp.task('build', [
   'copy',
   'imagemin',
   'sass',
+  'handlebars',
   'browserify'
 ]);
 
@@ -45,6 +46,7 @@ gulp.task('serve', [
   'imagemin',
   'copy',
   'sass',
+  'handlebars',
   'browserify',
   'browserSync',
   'watch'

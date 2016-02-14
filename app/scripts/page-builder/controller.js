@@ -1,18 +1,17 @@
 "use strict";
 
 var Marionette = require('backbone.marionette');
+var NewLessonView = require('./views/new-lesson');
 
 var PageBuilderController = Marionette.Object.extend({
     initialize: function (options) {
         this.app = options.app;
-    },
-
-    start: function () {
         this.manifest = this._initManifestData();
     },
 
     lessonBuilder: function () {
-        debugger;
+        var view = new NewLessonView();
+        this.app.root.showChildView('main', view);
     },
 
     stepBuilder: function () {

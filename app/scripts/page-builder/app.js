@@ -1,6 +1,7 @@
 "use strict";
 
 var Backbone = require('backbone');
+var Handlebars = require('handlebars');
 var Marionette = require('backbone.marionette');
 
 var Controller = require('./controller');
@@ -25,8 +26,7 @@ app.on('start', function () {
         controller: controller
     });
 
-    controller.start();
-    Backbone.history.start();
+    Backbone.history.start({ pushState: true });
 });
 
 app.start();

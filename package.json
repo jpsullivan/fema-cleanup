@@ -4,7 +4,8 @@
   "dependencies": {
     "backbone": "^1.2.3",
     "backbone.marionette": "^2.4.4",
-    "jquery": "^2.2.0"
+    "jquery": "^2.2.0",
+    "string-template": "^1.0.0"
   },
   "devDependencies": {
     "autoprefixer": "~6.3.1",

@@ -2,6 +2,7 @@
 
 var Marionette = require('backbone.marionette');
 var NewLessonView = require('./views/new-lesson');
+var NewStepView = require('./views/new-step');
 
 var PageBuilderController = Marionette.Object.extend({
     initialize: function (options) {
@@ -15,7 +16,8 @@ var PageBuilderController = Marionette.Object.extend({
     },
 
     stepBuilder: function () {
-        debugger;
+        var view = new NewStepView({ app: this.app });
+        this.app.root.showChildView('main', view);
     },
 
     _initManifestData: function () {

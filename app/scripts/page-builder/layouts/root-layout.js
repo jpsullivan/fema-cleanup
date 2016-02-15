@@ -7,7 +7,8 @@ var RootLayout = Marionette.LayoutView.extend({
 
     regions: {
         nav: ".navbar",
-        main: "#main"
+        main: "#main",
+        stepContent: "#stepContent"
     }
 });
 

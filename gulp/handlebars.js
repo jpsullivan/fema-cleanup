@@ -48,12 +48,11 @@ module.exports = function(gulp, plugins, args, config, taskTarget, browserSync) 
           .pipe(declare({
             namespace: 'JST',
             processName: function (filePath) {
-                var lookup = 'fema-cleanup/';
-                filePath = filePath.substring((filePath.indexOf(lookup) + lookup.length), filePath.length);
                 filePath = filePath.replace(/\\/g, "/"); // convert fwd-slash to backslash
+                 var lookup = 'ctech-fema/';
+                filePath = filePath.substring((filePath.indexOf(lookup) + lookup.length), filePath.length);
                 filePath = filePath.replace('app/scripts/page-builder/templates/', '');
                 filePath = filePath.replace('.js', '');
-                console.log(filePath);
                 return filePath;
             }
         }));

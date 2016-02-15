@@ -4,19 +4,19 @@
     <div class="col-md-5">
         <form class="form-horizontal">
             <div class="form-group">
-                <label for="identifier" class="col-sm-3 control-label">Identifier</label>
-                <div class="col-sm-6">
-                  <input type="text" class="form-control" id="identifier" placeholder="ex. Lesson2">
+                <label for="lessonNumber" class="col-sm-4 control-label">Lesson Number</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" id="lessonNumber" placeholder="ex. 2">
                 </div>
             </div>
             <div class="form-group">
-                <label for="lessonCode" class="col-sm-3 control-label">Lesson Code</label>
+                <label for="lessonCode" class="col-sm-4 control-label">Lesson Code</label>
                 <div class="col-sm-3">
                   <input type="text" class="form-control" id="lessonCode" placeholder="ex. SM02">
                 </div>
             </div>
             <div class="form-group">
-                <label for="lessonName" class="col-sm-3 control-label">Lesson Name</label>
+                <label for="lessonName" class="col-sm-4 control-label">Lesson Name</label>
                 <div class="col-sm-8">
                   <input type="text" class="form-control" id="lessonName" placeholder="The new lesson name">
                 </div>
@@ -25,11 +25,15 @@
         </form>
     </div>
     <div class="col-md-7">
-        {{#if output}}
+        {{#if output.item}}
         <p>
             Add the following code below the last lesson item in the <span class="label label-default">imsmanifest.xml</span> file.
         </p>
-        <pre><code class="xml">{{ output }}</code></pre>
+        <pre><code class="xml">{{ output.item }}</code></pre>
+        <p>
+            And add this inside of the <span class="label label-default">&lt;resources&gt;</span> tag.
+        </p>
+        <pre><code class="xml">{{ output.resource }}</code></pre>
         {{else}}
         <div class="alert alert-info" role="alert">Fill out the fields on the left to view the generated lesson XML.</div>
         {{/if}}

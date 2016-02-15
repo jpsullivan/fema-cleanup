@@ -1,5 +1,6 @@
 "use strict";
 
+var _ = require('underscore');
 var Marionette = require('backbone.marionette');
 var NewLessonView = require('./views/new-lesson');
 var NewStepView = require('./views/new-step');
@@ -7,7 +8,6 @@ var NewStepView = require('./views/new-step');
 var PageBuilderController = Marionette.Object.extend({
     initialize: function (options) {
         this.app = options.app;
-        this.manifest = this._initManifestData();
     },
 
     lessonBuilder: function () {
@@ -16,24 +16,14 @@ var PageBuilderController = Marionette.Object.extend({
     },
 
     stepBuilder: function () {
-        var view = new NewStepView({ app: this.app });
-        this.app.root.showChildView('main', view);
-    },
-
-    _initManifestData: function () {
-        var req = $.ajax({
-            type: "GET",
-            url: "../../imsmanifest.xml",
-            dataType: "xml"
-        });
-        req.success = function (xml) {
+        this._initManifestData().done(_.bind(function (xml) {
             var dict = {
                 lessons: {}
             };
 
             var res = $(xml).find('resources');
             res.find('resource').each(function() {
-                dict.lessons[$(this).attr('identifier')+''] = $(this).attr('href')+'';
+                dict.lessons[$(this).attr('identifier')+''] = $(this).attr('identifier')+'';
             });
             $(xml).find('item').each(function() {
                 var id = $(this).attr('identifier')+'';
@@ -42,8 +32,17 @@ var PageBuilderController = Marionette.Object.extend({
                 //$('<p><a href="javascript:LoadLesson(&quot;'+dict[idRef]+'&quot;)">'+title+'</a></p>').appendTo('#allLessons');
             });
 
-            return dict;
-        };
+            var view = new NewStepView({ app: this.app, manifest: dict });
+            this.app.root.showChildView('main', view);
+        }, this));
+    },
+
+    _initManifestData: function () {
+        return $.ajax({
+            type: "GET",
+            url: "../../imsmanifest.xml",
+            dataType: "xml"
+        });
     }
 });
 

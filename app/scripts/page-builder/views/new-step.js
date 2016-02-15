@@ -1,5 +1,6 @@
 "use strict";
 
+var _ = require('underscore');
 var format = require('string-template');
 var Marionette = require('backbone.marionette');
 
@@ -10,6 +11,7 @@ var NewStepView = Marionette.ItemView.extend({
     template: JST["new-step"],
 
     ui: {
+        lessons: "#selectedLesson",
         pageType: "#pageType",
         submit: "#create-lesson"
     },
@@ -27,7 +29,20 @@ var NewStepView = Marionette.ItemView.extend({
 
     initialize: function (options) {
         this.app = options.app;
+        this.manifest = options.manifest;
         this.output = null
+    },
+
+    onRender: function () {
+        this._buildLessonDropdown();
+    },
+
+    _buildLessonDropdown: function () {
+        var output = '<option>Please select a lesson</option>';
+        _.each(this.manifest.lessons, function (lesson) {
+            output += '<option value="'+lesson+'">'+lesson+'</option>';
+        });
+        $(this.ui.lessons).html(output);
     },
 
     onChangePageType: function (e) {
@@ -49,7 +64,7 @@ var NewStepView = Marionette.ItemView.extend({
     generateLessonXml: function (e) {
         e.preventDefault();
 
-        var output = format('<item identifier="{0}" identifierref="{1}"><title>{2}</title></item>', [
+        var output = format('<file href="SMPL0101010.htm" title="Introduction"/>', [
             this.ui.lessonIdentifier.val(),
             this.ui.lessonCode.val(),
             this.ui.lessonName.val()

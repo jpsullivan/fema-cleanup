@@ -18,7 +18,7 @@ var NewStepView = Marionette.ItemView.extend({
 
     events: {
         "change @ui.pageType": "onChangePageType",
-        "click @ui.submit": "generateLessonXml"
+        "click @ui.submit": "generateOutput"
     },
 
     serializeData: function () {
@@ -48,8 +48,8 @@ var NewStepView = Marionette.ItemView.extend({
     onChangePageType: function (e) {
         var pageType = $(e.currentTarget).val();
         var stepView = this._getStepView(pageType);
-        var view = new stepView();
-        this.app.root.showChildView('stepContent', view);
+        this.stepView = new stepView();
+        this.app.root.showChildView('stepContent', this.stepView);
     },
 
     _getStepView: function (pageType) {
@@ -61,8 +61,10 @@ var NewStepView = Marionette.ItemView.extend({
         }
     },
 
-    generateLessonXml: function (e) {
+    generateOutput: function (e) {
         e.preventDefault();
+
+        this.stepView.getOutput();
 
         var output = format('<file href="SMPL0101010.htm" title="Introduction"/>', [
             this.ui.lessonIdentifier.val(),

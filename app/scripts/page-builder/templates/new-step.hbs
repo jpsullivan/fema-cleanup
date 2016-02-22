@@ -12,6 +12,12 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="stepNumber" class="col-sm-3 control-label">Step Number</label>
+                <div class="col-sm-3">
+                  <input type="text" class="form-control" id="stepNumber" placeholder="ex. 9">
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="stepName" class="col-sm-3 control-label">Step Name</label>
                 <div class="col-sm-8">
                   <input type="text" class="form-control" id="stepName" placeholder="The new step name">
@@ -33,11 +39,16 @@
     <div class="col-md-7">
         {{#if output}}
         <p>
-            Add the following code below the last lesson item in the <span class="label label-default">imsmanifest.xml</span> file.
+            First, inside the <span class="label label-default">imsmanifest.xml</span> file, add the following inside of the selected
+            lesson <span class="label label-default">&lt;resource&gt;</span> tag.
         </p>
-        <pre><code class="xml">{{ output }}</code></pre>
+        <pre><code class="xml">{{ output.manifestFileMarkup }}</code></pre>
+        <p>
+            Add the following HTML to your new step HTML file. Please be sure to name this file <strong>{{output.stepFileName}}</strong>.
+        </p>
+        <pre><code class="html">{{ output.html }}</code></pre>
         {{else}}
-        <div class="alert alert-info" role="alert">Fill out the fields on the left to view the generated code XML.</div>
+        <div class="alert alert-info" role="alert">Fill out the fields on the left to view the generated code.</div>
         {{/if}}
     </div>
 </div>

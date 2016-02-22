@@ -13,6 +13,7 @@ var NewStepView = Marionette.ItemView.extend({
     ui: {
         lessons: "#selectedLesson",
         pageType: "#pageType",
+        stepNumber: "#stepNumber",
         stepName: "#stepName",
         submit: "#create-lesson"
     },
@@ -65,19 +66,30 @@ var NewStepView = Marionette.ItemView.extend({
     generateOutput: function (e) {
         e.preventDefault();
 
-        this.stepView.getOutput(this.ui.stepName.val());
+        var html = this.stepView.getOutput(this.ui.stepName.val());
 
-        var output = format('<file href="SMPL0101010.htm" title="Introduction"/>', [
-            this.ui.lessonIdentifier.val(),
-            this.ui.lessonCode.val(),
-            this.ui.lessonName.val()
+        var manifestFileMarkup = format('<file href="{0}" title="{1}"/>', [
+            this._getStepFileName(),
+            this.ui.stepName.val()
         ]);
-        this.output = output;
+
+        this.output = {
+            manifestFileMarkup: manifestFileMarkup,
+            stepFileName: this._getStepFileName(),
+            html: html
+        };
         this.render();
 
         $('pre code').each(function(i, block) {
             hljs.highlightBlock(block);
         });
+    },
+
+    _getStepFileName: function () {
+        return format('{0}{1}.htm', [
+            this.ui.lessons.val(),
+            ('0' + this.ui.stepNumber.val()).slice(-2)
+        ]);
     }
 });
 

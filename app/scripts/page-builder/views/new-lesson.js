@@ -30,13 +30,13 @@ var NewLessonView = Marionette.ItemView.extend({
     generateLessonXml: function (e) {
         e.preventDefault();
 
-        var itemOutput = format('<item identifier="{0}" identifierref="{1}"><title>{2}</title></item>', [
+        var itemOutput = format('<item identifier = "{0}" identifierref = "{1}"><title>{2}</title></item>', [
             "Lesson" + this.ui.lessonNumber.val(),
             this.ui.lessonCode.val(),
             this.ui.lessonName.val()
         ]);
 
-        var resourceOutput = format('<resource identifier="{0}" type="webcontent" adlcp:scormtype="sco" href="SMPLIndex.htm?lesson={1}"></resource>', [
+        var resourceOutput = format('<resource identifier = "{0}" type = "webcontent" adlcp:scormtype = "sco" href = "SMPLIndex.htm?lesson={1}"></resource>', [
             this.ui.lessonCode.val(),
             this.ui.lessonNumber.val()
         ]);

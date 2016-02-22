@@ -1,5 +1,6 @@
 "use strict";
 
+var _ = require('underscore');
 var Marionette = require('backbone.marionette');
 
 var MultipleChoiceView = Marionette.ItemView.extend({
@@ -24,15 +25,15 @@ var MultipleChoiceView = Marionette.ItemView.extend({
     },
 
     getOutput: function (title) {
-        var output = JST["pages/multiple-choice"]({
+        return JST["pages/multiple-choice"]({
             title: title,
             description: this.ui.description.val(),
             instructions: this.ui.instructions.val(),
             triesAllowed: this.ui.triesAllowed.val(),
             feedback: this.ui.feedback.val(),
-            choices: this.getChoices()
+            choices: this.getChoices(),
+            answerCode: this._buildCorrectAnswer()
         });
-        debugger;
     },
 
     getChoices: function () {
@@ -40,11 +41,25 @@ var MultipleChoiceView = Marionette.ItemView.extend({
         $('.choice').each(function (index, el) {
             choices.push({
                 active: $('input[type=checkbox]', el).is(":checked"),
-                name: $('input[type=text]', el).val()
+                title: $('input[type=text]', el).val()
             });
         });
 
         return choices;
+    },
+
+    _buildCorrectAnswer: function () {
+        var answer = "";
+        var choices = this.getChoices();
+        _.each(choices, function (choice) {
+            if (choice.active) {
+                answer += "1";
+            } else {
+                answer += "0";
+            }
+        });
+
+        return answer;
     }
 });
 

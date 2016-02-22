@@ -13,6 +13,7 @@ var NewStepView = Marionette.ItemView.extend({
     ui: {
         lessons: "#selectedLesson",
         pageType: "#pageType",
+        stepName: "#stepName",
         submit: "#create-lesson"
     },
 
@@ -24,7 +25,7 @@ var NewStepView = Marionette.ItemView.extend({
     serializeData: function () {
         return {
             output: this.output
-        }
+        };
     },
 
     initialize: function (options) {
@@ -64,7 +65,7 @@ var NewStepView = Marionette.ItemView.extend({
     generateOutput: function (e) {
         e.preventDefault();
 
-        this.stepView.getOutput();
+        this.stepView.getOutput(this.ui.stepName.val());
 
         var output = format('<file href="SMPL0101010.htm" title="Introduction"/>', [
             this.ui.lessonIdentifier.val(),

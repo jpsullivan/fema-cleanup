@@ -19,13 +19,32 @@ var MultipleChoiceView = Marionette.ItemView.extend({
     },
 
     addChoice: function () {
-        var newChoice = '<div class="checkbox choice pull-right"><label><input type="checkbox"><input type="text" class="form-control" id="stepName" placeholder="The choice value"></label></div>';
+        var newChoice = '<div class="checkbox choice pull-right"><label><input type="checkbox"><input type="text" class="form-control" placeholder="The choice value"></label></div>';
         this.ui.choices.append(newChoice);
     },
 
-    getOutput: function () {
-        var output = JST["pages/multiple-choice"]();
+    getOutput: function (title) {
+        var output = JST["pages/multiple-choice"]({
+            title: title,
+            description: this.ui.description.val(),
+            instructions: this.ui.instructions.val(),
+            triesAllowed: this.ui.triesAllowed.val(),
+            feedback: this.ui.feedback.val(),
+            choices: this.getChoices()
+        });
         debugger;
+    },
+
+    getChoices: function () {
+        var choices = [];
+        $('.choice').each(function (index, el) {
+            choices.push({
+                active: $('input[type=checkbox]', el).is(":checked"),
+                name: $('input[type=text]', el).val()
+            });
+        });
+
+        return choices;
     }
 });
 

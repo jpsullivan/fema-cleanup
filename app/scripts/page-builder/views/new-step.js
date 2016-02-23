@@ -5,7 +5,12 @@ var format = require('string-template');
 var Marionette = require('backbone.marionette');
 
 // page types
+var ImageView = require('./pages/image');
 var MultipleChoiceView = require('./pages/multiple-choice');
+var OrderView = require('./pages/order');
+var TextAreaView = require('./pages/text-area');
+var VideoView = require('./pages/video');
+var YesNoView = require('./pages/yes-no');
 
 var NewStepView = Marionette.ItemView.extend({
     template: JST["new-step"],
@@ -56,8 +61,18 @@ var NewStepView = Marionette.ItemView.extend({
 
     _getStepView: function (pageType) {
         switch (pageType) {
+            case "Image":
+                return ImageView;
             case "MultipleChoice":
                 return MultipleChoiceView;
+            case "Order":
+                return OrderView;
+            case "TextArea":
+                return TextAreaView;
+            case "Video":
+                return VideoView;
+            case "YesNo":
+                return YesNoView;
             default:
                 console.error("could not find a page type for '"+ pageType +"'");
         }

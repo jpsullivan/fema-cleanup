@@ -79,6 +79,13 @@
 
   <resource identifier = "TEST" type = "webcontent" adlcp:scormtype = "sco" href = "SMPLIndex.htm?lesson=3">
       <file href="TEST01.htm" title="Multiple Choice"/>
+      <file href="TEST02.htm" title="Multiple choice - single answer"/>
+      <file href="TEST03.htm" title="Video test"/>
+      <file href="TEST04.htm" title="Text Area test"/>
+      <file href="TEST05.htm" title="Image test"/>
+      <file href="TEST06.htm" title="Image test (right)"/>
+      <file href="TEST07.htm" title="Order test"/>
+      <file href="TEST08.htm" title="Yes/No Test"/>
   </resource>
 </resources>
 

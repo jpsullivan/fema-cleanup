@@ -67,33 +67,22 @@ outline-offset: -1px;
 	<div id="box1">
 		<div id="wrapper">
 			<div id="content"><a name="content"></a>
-			<h3>Video Template</h3>
-            <p>This page contains an example of a video.  Videos should be in MP4 format and use MediaElement.js player to ensure compatibility across various browsers.  The video must also contain both Closed Captioning (.srt file) and a transcript. </p>
-			<p>Use the source code of this page "SMPL0102030.htm" as a template for videos.  You will need to make the following code changes:
-				<ul>
-					<li>Poster attribute of the video tag</li>
-					<li>src attribute of the source tag</li>
-					<li>value attribute of the param tag with the name "flashvars"</li>
-					<li>Track tag when using a separate caption file</li>
-					<li>Link to transcript</li>
-				</ul>
-			</p>
-            <p>This page also contains an example of an internal link.  Internal links can be used for various reasons including linking to additional content, printable materials, and transcripts.</p>
+			<h3>{{title}}</h3>
+            {{{description}}}
 			<div class="videoShell">
-			  <video id="video1" controls poster="assets/IS0000_video1.jpg" tabindex="0">
-					<source src="assets/FEMA_Prepare_Audio_Descriptions_and_Open_Captions.mp4" type="video/mp4" />
+			  <video id="video1" controls poster="{{posterImagePath}}" tabindex="0">
+					<source src="{{videoPath}}" type="video/mp4" />
 					<!--<track kind="subtitles" src="assets/video1captions.srt" srclang="en"></track>-->
 					<object type="application/x-shockwave-flash" data="flashmediaelement.swf" width="590" height="306">
 						<param name="movie" value="flashmediaelement.swf" />
-						<param name="flashvars" value="controls=true&amp;file=assets/EMA_Prepare_Audio_Descriptions_and_Open_Captions.mp4" />
-						<!--<img src="assets/IS0000_video1.jpg"/>-->
+						<param name="flashvars" value="controls=true&amp;file={{videoPath}}" />
+						<!--<img src="{{posterImagePath}}"/>-->
 						<!-- Image fall back for non-HTML5 browser with JavaScript turned off and no Flash player installed -->
 					</object>
 				</video>
 			</div>
 			<div id="container1" title="video stage"></div>
-              <br />
-				<span class="lowerInstruction"><a href="javascript:SendMeSummary('SMPL0102030text.htm')"><img src="images/transcript.png" alt="Select this link to view the transcript." /></a></span><br />
+            <br />
 		  </div><!-- end #content -->
 		</div><!-- end #wrapper -->
 	</div><!-- end #box1 -->

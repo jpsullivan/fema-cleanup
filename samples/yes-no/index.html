@@ -1,0 +1,68 @@
+<div id="box1">
+	<div id="wrapper">
+		<div id="content" align="left"><a name="content"></a>
+			<h3>Knowledge Review (Yes/No Radio buttons)</h3>
+			<p>This is an example of a Knowledge Review with Yes/No style questions.  Please use the same format that is found in the example below.  When you create this type of Knowledge Review, you must reference "FeedbackCR.js" and change the values of the Feedback and vCorrectAnswer JavaScript variables.</p>
+			<p>If you choose to use the EMI Snippet, use the one titled "ColumnRow" for this type of question.</p>
+            <form name="form1">
+                <fieldset>
+                    <legend><strong>Instructions: </strong> Beside the following list, indicate whether each statement is consistent with GDN. Click on the Submit button when you are finished.</legend>
+                    <!-- if the first column header is something besides "Statement", edit the alt tag below -->
+                    <table width="99%" border="0" cellspacing="0" cellpadding="3">
+                        <tr>
+                            <th scope="col">Statements</th>
+                            <td width="1"></td>
+                            <th scope="col">GDN Is</th>
+                            <!-- Edit the column heading to suit your needs -->
+                            <th scope="col">GDN Is Not</th>
+                            <!-- Edit the column heading to suit your needs -->
+                        </tr>
+                        <!-- Edit the title tags below to match the headings -->
+                        <tr class="rowColor1 questionSet">
+                            <td width="509" valign="top">Scalable so it may be used for all incidents (from day-to-day to large-scale) </td>
+                            <td></td>
+                            <td width="63" valign="top" align="center"><input type="radio" name="Quiz1" id="Quiz1a" value="1" title="Statement: Scalable so it may be used for all incidents (from day-to-day to large-scale). GDN Is" /></td>
+                            <td width="91" valign="top" align="center"><input type="radio" name="Quiz1" id="Quiz1b" value="2" title="Statement: Scalable so it may be used for all incidents (from day-to-day to large-scale). GDN Is Not" /></td>
+                        </tr>
+                        <tr class="rowColor2 questionSet">
+                            <td width="509" valign="top">A response plan used exclusively during incidents requiring Federal coordination</td>
+                            <td></td>
+                            <td width="63" valign="top" align="center"><input type="radio" name="Quiz2" id="Quiz2a" value="1" title="Statement: A response plan used exclusively during incidents requiring Federal Coordination. GDN Is" /></td>
+                            <td width="91" valign="top" align="center"><input type="radio" name="Quiz2" id="Quiz2b" value="2" title="Statement: A response plan used exclusively during incidents requiring Federal Coordination. GDN Is Not" /></td>
+                        </tr>
+                        <tr class="rowColor1 questionSet">
+                            <td width="509" valign="top">Doctrine followed by those who have highly specialized, tactical response training </td>
+                            <td></td>
+                            <td width="63" valign="top" align="center"><input type="radio" name="Quiz3" id="Quiz3a" value="1" title="Statement: Doctrine followed by those who have highly specialized, tactical response training. GDN Is" /></td>
+                            <td width="91" valign="top" align="center"><input type="radio" name="Quiz3" id="Quiz3b" value="2" title="Statement: Doctrine followed by those who have highly specialized, tactical response training. GDN Is Not" /></td>
+                        </tr>
+                        <tr class="rowColor2 questionSet">
+                            <td width="509" valign="top">A set of preparedness concepts and principles for all hazards</td>
+                            <td></td>
+                            <td width="63" valign="top" align="center"><input type="radio" name="Quiz4" id="Quiz4a" value="1" title="Statement: A set of preparedness concepts and principles for all hazards. GDN Is" /></td>
+                            <td width="91" valign="top" align="center"><input type="radio" name="Quiz4" id="Quiz4b" value="2" title="Statement: A set of preparedness concepts and principles for all hazards. GDN Is Not" /></td>
+                        </tr>
+                        <tr class="rowColor1 questionSet">
+                            <td width="509" valign="top">An incident organization chart based on the Incident Command System</td>
+                            <td></td>
+                            <td width="63" valign="top" align="center"><input type="radio" name="Quiz5" id="Quiz5a" value="1" title="Statement: An incident organizational chart based on the Incident Command System. GDN Is" /></td>
+                            <td width="91" valign="top" align="center"><input type="radio" name="Quiz5" id="Quiz5b" value="2" title="Statement: An incident organizational chart based on the Incident Command System. GDN Is Not" /></td>
+                        </tr>
+                        <tr>
+                            <td valign="top" align="right" colspan="4"><a href="javascript:Clicked()" onmouseover="document.submitme.src='images/buttonSubmitHi.gif';" onmouseout="document.submitme.src='images/buttonSubmit.gif';" onmousedown="document.submitme.src='images/buttonSubmitDn.gif';"><img src="images/buttonSubmit.gif" border="0" name="submitme" alt="Submit your answer" /></a></td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <div id="feedbackDiv"></div>
+            </form>
+
+			<script language="JavaScript" src="scripts/FeedbackCR.js" type="text/javascript"></script>
+			<script language="JavaScript" type="text/javascript">
+				var Feedback = '<p>Review the  summary below of "What GDN is" and "What GDN is NOT."</p><table width="99%" cellspacing="0" cellpadding="0">          <tr>            <td width="50%" valign="top"><strong> What GDN is: </strong></td>            <td width="50%" valign="top"><strong> What GDN is NOT: </strong></td>          </tr>          <tr>            <td width="50%" valign="top"><ul style="margin-top:10px;">                <li>A comprehensive, nationwide, systematic approach to incident management, including the Incident Command System, Multiagency Coordination Systems, and Public Information </li>           <li>A set of preparedness concepts and principles for all hazards </li>                <li>Essential principles for a common operating picture and interoperability of communications and information management </li>                <li>Standardized resource management procedures that enable coordination among different jurisdictions or organizations </li>                <li>Scalable so it may be used for all incidents (from day-to-day to large-scale) </li>                <li>A dynamic system that promotes ongoing management and maintenance </li>            </ul></td>            <td width="50%" valign="top" style="padding-left:15px;"><ul style="margin-top:10px;">                <li>A response plan </li>    	<li>Only used during large-scale incidents</li>    	<li>A communications plan </li>    	<li>Only applicable to certain emergency management/incident response personnel</li>               		<li>Only the Incident Command System or an organization chart </li>                <li>A static system </li>            </ul></td>          </tr>        </table>';  // you will need to "escape" all double quotes in this area with back slashes.  (i.e. ...he said. \"this is great\")
+				var vCorrectAnswer = "12212";  //enter a 1 or a 2 for each row (i.e. if the first row's answer is the 2nd column, enter a 2)
+				var vTriesAllowed = 2;
+				showCorrect();
+			</script>
+		</div><!-- end #content -->
+	</div><!-- end #wrapper -->
+</div><!-- end #box1 -->

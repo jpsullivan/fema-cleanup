@@ -1,0 +1,41 @@
+<div id="box1">
+    <div id="wrapper">
+        <div id="content" align="left"><a name="content"></a>
+            <h3>Multiple choice - single answer</h3>
+            <p>test</p>
+            <form name="form1" action="">
+                <fieldset>
+                    <legend>
+                        <span class="instruction"><strong>do this</strong></span>
+                    </legend>
+                    <table width="95%" border="0" cellspacing="0" cellpadding="3">
+                        <tr>
+                            <td valign="top" width="20"><input type="radio" name="Quiz" value="1" id="Quiz0" title="correct" /></td>
+                            <td valign="top" width="100%"><label for="Quiz0">correct</label></td>
+                        </tr>
+                        <tr>
+                            <td valign="top" width="20"><input type="radio" name="Quiz" value="1" id="Quiz1" title="wrong" /></td>
+                            <td valign="top" width="100%"><label for="Quiz1">wrong</label></td>
+                        </tr>
+                        <tr>
+                            <td valign="top" width="20"><input type="radio" name="Quiz" value="1" id="Quiz2" title="wrong" /></td>
+                            <td valign="top" width="100%"><label for="Quiz2">wrong</label></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td valign="top"><a href="javascript:Clicked()" onmouseover="document.submitme.src='images/buttonSubmitHi.gif';" onmouseout="document.submitme.src='images/buttonSubmit.gif';" onmousedown="document.submitme.src='images/buttonSubmitDn.gif';"><img src="images/buttonSubmit.gif" alt="Submit your answer" name="submitme" border="0" id="submitme" /></a></td>
+                        </tr>
+                    </table>
+                </fieldset>
+                <div id="feedbackDiv"></div>
+            </form>
+            <script language="JavaScript" src="scripts/FeedbackCA.js" type="text/javascript"></script>
+            <script language="JavaScript" type="text/javascript">
+                var Feedback = "select the first answer"  // you will need to "escape" all double quotes in this area with back slashes.  (i.e. ...he said. \"this is great\")
+                var vCorrectAnswer = "1" // enter 1s and 0s as checked and unchecked (i.e. if items 2 and 3 should only be checked, enter 0110)
+                var vTriesAllowed = 2
+                showCorrect();
+            </script>
+        </div><!-- end #content -->
+    </div><!-- end #wrapper -->
+</div><!-- end #box1 -->

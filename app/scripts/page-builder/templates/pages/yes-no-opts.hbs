@@ -1,23 +1,5 @@
 <hr />
-<h4>Multiple Choice Options</h4>
-
-<div class="form-group">
-    <label for="description" class="col-sm-3 control-label">Answer Type</label>
-    <div class="col-sm-8">
-        <div class="radio">
-            <label>
-                <input type="radio" name="answerType" value="single" checked>
-                Single answer
-          </label>
-        </div>
-        <div class="radio">
-            <label>
-                <input type="radio" name="answerType" value="multiple">
-                Multiple answer
-            </label>
-        </div>
-    </div>
-</div>
+<h4>Yes/No Options</h4>
 
 <div class="form-group">
     <label for="description" class="col-sm-3 control-label">Description</label>
@@ -48,7 +30,28 @@
 </div>
 
 <div class="form-group">
+    <label for="tableHeading" class="col-sm-3 control-label">Table heading</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="tableHeading" placeholder="ex. Statements">
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="choiceAHeading" class="col-sm-3 control-label">Choice A heading</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="choiceAHeading" placeholder="ex. GDN is">
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="choiceBHeading" class="col-sm-3 control-label">Choice B heading</label>
+    <div class="col-sm-8">
+      <input type="text" class="form-control" id="choiceBHeading" placeholder="ex. GDN is not">
+    </div>
+</div>
+
+<div class="form-group">
     <label for="instructions" class="col-sm-3 control-label">Choices</label>
     <button type="button" id="addChoice" class="btn btn-default btn-sm">Add Choice</button>
-    <div class="col-sm-8" id="choices"></div>
+    <div class="col-sm-10" id="choices" style="padding-top:10px;"></div>
 </div>

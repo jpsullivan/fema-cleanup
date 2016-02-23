@@ -7,6 +7,7 @@ var MultipleChoiceView = Marionette.ItemView.extend({
     template: JST["pages/multiple-choice-opts"],
 
     ui: {
+        answerType: "input[name='answerType']",
         description: "#description",
         instructions: "#instructions",
         triesAllowed: "#triesAllowed",
@@ -16,11 +17,26 @@ var MultipleChoiceView = Marionette.ItemView.extend({
     },
 
     events: {
+        "change @ui.answerType": "resetChoices",
         "click @ui.addChoice": "addChoice"
     },
 
+    _getSelectedAnswerType: function () {
+        return $('input[name="answerType"]:checked').val();
+    },
+
+    resetChoices: function () {
+        this.ui.choices.html('');
+    },
+
     addChoice: function () {
-        var newChoice = '<div class="checkbox choice pull-right"><label><input type="checkbox"><input type="text" class="form-control" placeholder="The choice value"></label></div>';
+        var newChoice;
+        if (this._getSelectedAnswerType() === "single") {
+            newChoice = '<div class="radio choice pull-right"><label><input type="radio" name="singleChoices"><input type="text" class="form-control" placeholder="The choice value"></label></div>';
+        } else {
+            newChoice = '<div class="checkbox choice pull-right"><label><input type="checkbox"><input type="text" class="form-control" placeholder="The choice value"></label></div>';
+        }
+
         this.ui.choices.append(newChoice);
     },
 
@@ -32,18 +48,26 @@ var MultipleChoiceView = Marionette.ItemView.extend({
             triesAllowed: this.ui.triesAllowed.val(),
             feedback: this.ui.feedback.val(),
             choices: this.getChoices(),
+            isSingleChoice: this._getSelectedAnswerType() === "single",
             answerCode: this._buildCorrectAnswer()
         });
     },
 
     getChoices: function () {
         var choices = [];
-        $('.choice').each(function (index, el) {
+        $('.choice').each(_.bind(function (index, el) {
+            var active;
+            if (this._getSelectedAnswerType() === "single") {
+                active = $('input[type=radio]', el).is(":checked");
+            } else {
+                active = $('input[type=checkbox]', el).is(":checked");
+            }
+
             choices.push({
-                active: $('input[type=checkbox]', el).is(":checked"),
+                active: active,
                 title: $('input[type=text]', el).val()
             });
-        });
+        }, this));
 
         return choices;
     },
@@ -51,13 +75,23 @@ var MultipleChoiceView = Marionette.ItemView.extend({
     _buildCorrectAnswer: function () {
         var answer = "";
         var choices = this.getChoices();
-        _.each(choices, function (choice) {
-            if (choice.active) {
-                answer += "1";
-            } else {
-                answer += "0";
-            }
-        });
+
+        // for single choice, only return the correct index number
+        if (this._getSelectedAnswerType() === "single") {
+            _.each(choices, function (choice, i) {
+                if (choice.active) {
+                    answer = i + 1;
+                }
+            });
+        } else {
+            _.each(choices, function (choice) {
+                if (choice.active) {
+                    answer += "1";
+                } else {
+                    answer += "0";
+                }
+            });
+        }
 
         return answer;
     }

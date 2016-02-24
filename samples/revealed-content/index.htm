@@ -1,0 +1,43 @@
+<div id="box1">
+	<div id="wrapper">
+		<div id="content" align="left"><a name="content"></a>
+			<h3>Voices of Experience (Reveal Content Example)</h3>
+			<div class="content-main left fifty-fifty">
+
+			<script type="text/javascript">
+			var contentArray = ['', '<p><strong>Steve Grainer, Chief, Incident Management Programs, VA Dept. of Fire Programs </strong></p><p>NIMS is a national initiative to standardize the fundamental processes that are necessary for effectively managing significant emergencies, and it&rsquo;s applicable in all size and scale and scope emergencies. </p><p>Having been involved at the local, State, and Federal level in a number of different venues during my career, I&rsquo;m truly and honestly pleased to say that this is an opportunity for us all to better establish a baseline of competencies for not only emergencies, obviously that would be the primary focus, but also to utilize a nationally vetted process that will work given A) participation and B) commitment. So I&rsquo;m all for the idea of establishing a national systems approach as is pretty much formatted through the concepts of NIMS in their entirety. It&rsquo;s a good thing, that&rsquo;s about the best I can say. </p>', '<p><strong>Curry Mayer, Training &amp; Exercise Chief, Governor&rsquo;s Office of Emergency Services (CA)</strong></p><p>NIMS is the national structure that includes roles and responsibilities for responding to an incident that would require the Federal Government to be involved, a catastrophic or large-scale incident. It&rsquo;s also a system that provides common terminology, roles, and responsibilities so that everyone in the country can basically plug into the national system of response. </p>', '<p><strong>Kristy Plourde, NIMS Program Coordinator, U.S. Coast Guard</strong></p><p>NIMS  has helped us be better structured, have  less duplication, be more organized and more efficient and it covers the whole  gambit of organization, communications, preparedness, it&rsquo;s the whole, it&rsquo;s  everything.</p>', '<p><strong>Roberta Runge, National NIMS Coordinator, U.S. Environmental Protection Agency </strong></p><p>NIMS is a system that allows us to plan and prepare and execute a response more effectively with our response partners. </p><p>The biggest benefit to us as an agency is to be able to understand how our response partners are also going to be executing the response. EPA is a fairly large organization but we hardly ever respond to something very large and very complicated without other Federal and State and local partners. If everyone is operating the response using different terminology or a different management structure, it becomes very difficult, very fast.</p>'];
+			</script>
+
+			<p>This page is an example of content revealed on click. You may choose to either use the source of this page "SMPL0102100.htm" or the EMI Snippet titled "Voices_Of_Experience_waudio" as the base template for your page. With either method, modify the contentArray JavaScript variable and the contents of the page.</p>
+			<p>In addition to revealed content, this page contains an example of sound clips that are played on click (simultaneously with content reveal).  </p>
+			<p><strong>Example:</strong></p>
+			<!-- Audio -->
+			<script src="scripts/mediaelement-and-player.min.js"></script>
+			<link rel="stylesheet" href="css/mediaelementplayer.min.css" type="text/css" media="screen" />
+			<script type="text/javascript" src="scripts/audioOnly.js"></script>
+			<p><img src="images/audio_button.gif" alt="optional audio available" class="optionalAudio" align="left" />	<a href="javascript:audioToggle('#audioToggle');" id="audioToggle">Turn Audio Off</a></p>
+			<div id="audioSection" class="notVisible">
+				<audio controls>
+					<source id="audioSrc" src="" type="audio/mpeg">
+					</audio>
+				</div>
+				<!--End Audio -->
+				<table width="361" border="0" cellpadding="0" cellspacing="0" style="margin-top:5px;">
+					<tr>
+						<td><a href="javascript:revealContent(contentArray[1]);playSoundClip('assets/Grainer.mp3');"><img src="assets/SMPL0101080_01.gif" alt="Steve Grainer - Chief, Incident Management Programs, VA Dept. of Fire Programs" name="AF1" id="AF1" /></a></td>
+						<td><a href="javascript:revealContent(contentArray[2]);playSoundClip('assets/Mayer.mp3');"><img src="assets/SMPL0101080_02.gif" alt="Curry Mayer - Training & Exercise Chief, Governor's Office of Emergency Services (CA)" name="AF2" id="AF2" /></a></td>
+					</tr>
+					<tr>
+						<td><a href="javascript:revealContent(contentArray[3]);playSoundClip('assets/Plourde.mp3');"><img src="assets/SMPL0101080_03.gif" alt="Kristy Plourde - NIMS Program Coordinator, U.S. Coast Guard" name="AF3" id="AF3" /></a></td>
+						<td><a href="javascript:revealContent(contentArray[4]);playSoundClip('assets/Runge.mp3');"><img src="assets/SMPL0101080_04.gif" alt="Roberta Runge - National NIMS Coordinator, U.S. Environmental Protection Agency" name="AF4" id="AF4" /></a></td>
+					</tr>
+				</table>
+				<a href="javascript:SendMeSummary('SMPL0102100text.htm')">Summary</a>
+
+			</div>
+			<div id="revealedContent">
+				<p class="instruction">Click on an image to learn about each person&rsquo;s perspectives on GDN benefits. </p>
+			</div>
+		</div><!-- end #content -->
+	</div><!-- end #wrapper -->
+</div><!-- end #box1 -->

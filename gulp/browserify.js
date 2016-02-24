@@ -28,6 +28,7 @@ module.exports = function(gulp, plugins, args, config, taskTarget, browserSync) 
       };
 
       var bundler = browserify(customOpts);
+      var outputFileName = './' + path.join(dirs.source, dirs.scripts, "page-builder", "main.js");
 
       if (!args.production) {
         // Setup Watchify for faster builds
@@ -47,7 +48,7 @@ module.exports = function(gulp, plugins, args, config, taskTarget, browserSync) 
             );
             this.emit('end');
           })
-          .pipe(vsource(entry))
+          .pipe(vsource(outputFileName))
           .pipe(buffer())
           .pipe(plugins.sourcemaps.init({loadMaps: true}))
             .pipe(gulpif(args.production, plugins.uglify()))
@@ -63,7 +64,7 @@ module.exports = function(gulp, plugins, args, config, taskTarget, browserSync) 
           .on('end', function() {
             var time = (new Date().getTime() - startTime) / 1000;
             console.log(
-              plugins.util.colors.cyan(entry)
+              plugins.util.colors.cyan(outputFileName)
               + ' was browserified: '
               + plugins.util.colors.magenta(time + 's'));
             return browserSync.reload('*.js');

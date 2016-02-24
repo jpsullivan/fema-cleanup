@@ -40,7 +40,7 @@ var PageBuilderController = Marionette.Object.extend({
     _initManifestData: function () {
         return $.ajax({
             type: "GET",
-            url: "../../imsmanifest.xml",
+            url: window.applicationRoot + "/imsmanifest.xml",
             dataType: "xml"
         });
     }

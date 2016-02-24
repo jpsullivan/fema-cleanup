@@ -34,59 +34,11 @@
 <organizations default = "MyCourse">
    <organization identifier = "MyCourse" structure = "Linear">
       <title>IS-0000: Template Course</title>
-      <item identifier = "Lesson1" identifierref = "SCO1"><title>Lesson 1: Introduction and Standards</title></item>
-      <item identifier = "Lesson2" identifierref = "SCO2"><title>Lesson 2: Examples</title></item>
-      <item identifier = "Lesson3" identifierref = "TEST"><title>Test Lesson</title></item>
+      <!-- <item identifier = "Lesson1" identifierref = "TEST"><title>Test Lesson</title></item> -->
    </organization>
 </organizations>
 
 <resources>
-  <resource identifier = "SCO1" type = "webcontent" adlcp:scormtype = "sco" href="SMPLIndex.htm?lesson=1">
-    <file href = "SMPL0101010.htm" title="Introduction"/>
-    <file href = "SMPL0101020.htm" title="Course Overview"/>
-    <file href = "SMPL0101030.htm" title="Screen Features"/>
-    <file href = "SMPL0101040.htm" title="Navigating Using Your Keyboard"/>
-    <file href = "SMPL0101050.htm" title="Receiving Credit"/>
-    <file href = "SMPL0101060.htm" title="Lesson Overview"/>
-    <file href = "SMPL0101070.htm" title="Gather Materials"/>
-    <file href = "SMPL0101075.htm" title="Required Content"/>
-    <file href = "SMPL0101080.htm" title="Basic Structure"/>
-    <file href = "SMPL0101090.htm" title="Main Files (Usage)"/>
-    <file href = "SMPL0101100.htm" title="Installing and Using the Template Files"/>
-    <file href = "SMPL0101110.htm" title="File Naming Conventions"/>
-    <file href = "SMPL0101120.htm" title="Editing the ismanifest.xml File"/>
-    <file href = "SMPL0101130.htm" title="Page Templates"/>
-    <file href = "SMPL0101140.htm" title="508 Compliance Guidelines"/>
-    <file href = "SMPL0101150.htm" title="Best Practices and Standards"/>
-    <file href = "SMPL0101160.htm" title="Best Practices and Standards"/>
-  </resource>
-  <resource identifier = "SCO2" type = "webcontent" adlcp:scormtype = "sco" href="SMPLIndex.htm?lesson=2">
-    <file href = "SMPL0102010.htm" title="Lesson Overview"/>
-    <file href = "SMPL0102020.htm" title="Image (Left)"/>
-    <file href = "SMPL0102030.htm" title="Video Example"/>
-    <file href = "SMPL0102040.htm" title="Bulleted List and Image"/>
-    <file href = "SMPL0102050.htm" title="Knowledge Review (True/False)"/>
-    <file href = "SMPL0102060.htm" title="Knowledge Review (Checkbox/Multiple Select)"/>
-    <file href = "SMPL0102070.htm" title="Knowledge Review (Text Area)"/>
-    <file href = "SMPL0102080.htm" title="Knowledge Review (Order)"/>
-    <file href = "SMPL0102090.htm" title="Knowledge Review (Multiple Choice, Single answer)"/>
-    <file href = "SMPL0102095.htm" title="Knowledge Review (Yes/No Radio buttons)"/>
-    <file href = "SMPL0102100.htm" title="Reveal Content"/>
-    <file href = "SMPL0102110.htm" title="Preparedness Resources"/>
-    <file href = "SMPL0102120.htm" title="Lesson Summary"/>
-    <file href = "SMPL0102130.htm" title="Final Exam Notice" />
-  </resource>
-
-  <resource identifier = "TEST" type = "webcontent" adlcp:scormtype = "sco" href = "SMPLIndex.htm?lesson=3">
-      <file href="TEST01.htm" title="Multiple Choice"/>
-      <file href="TEST02.htm" title="Multiple choice - single answer"/>
-      <file href="TEST03.htm" title="Video test"/>
-      <file href="TEST04.htm" title="Text Area test"/>
-      <file href="TEST05.htm" title="Image test"/>
-      <file href="TEST06.htm" title="Image test (right)"/>
-      <file href="TEST07.htm" title="Order test"/>
-      <file href="TEST08.htm" title="Yes/No Test"/>
-  </resource>
 </resources>
 
 </manifest>

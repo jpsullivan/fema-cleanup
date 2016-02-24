@@ -49,8 +49,12 @@
 
     <script src="../scripts/highlight.min.js"></script>
 
-    <!-- build:js(app/) ../../../scripts/page-builder/app.min.js -->
-    <script src="../scripts/page-builder/app.js"></script>
+    <script>
+        window.applicationRoot = "/";
+    </script>
+
+    <!-- build:js(app/) ../../../scripts/page-builder/main.min.js -->
+    <script src="../scripts/page-builder/main.js"></script>
     <!-- endbuild -->
 </body>
 </html>

@@ -26,7 +26,7 @@ app.on('start', function () {
         controller: controller
     });
 
-    Backbone.history.start({ pushState: true });
+    controller.router.initRouter();
 });
 
 app.start();

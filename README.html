@@ -188,6 +188,31 @@ samples/ -- Where the source code for Dreamweaver compatibile samples are held
                     </p>
                 </div>
             </div>
+
+            <br />
+            <p class="lead">Setting your applicationRoot path</p>
+            <div class="row">
+                <div class="col-md-8">
+                    <a href="#" class="thumbnail">
+                        <img src="app/images/usage-applicationRoot.gif" />
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <p>
+                        The Page Builder aims to be as set-and-forget as possible, but if you
+                        have installed this on a non-root URL, you will have to configure the
+                        <span class="label label-primary">applicationRoot</span> variable
+                        on both the <span class="label label-primary">app/page-builder/index.html</span>
+                        and <span class="label label-primary">app/page-builder/new-step.html</span>
+                        files.
+                    </p>
+                    <p>
+                        For example, if you have installed your instance on <strong>http://www.myurl.com/fema</strong>,
+                        then set your applicationRoot variable to <span class="label label-primary">/fema</span>.
+                        It is important to set this so that the Page Builder correctly loads the configurator fields.
+                    </p>
+                </div>
+            </div>
         </section>
         <hr>
         <section id="#deployment">

@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Page Builder</title>
 
+    <link rel="home" id="ApplicationRoot" href="fema" />
+
     <!-- Bootstrap -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/highlight.min.css" rel="stylesheet">
@@ -49,8 +51,12 @@
 
     <script src="../scripts/highlight.min.js"></script>
 
-    <!-- build:js(app/) ../../../scripts/page-builder/app.min.js -->
-    <script src="../scripts/page-builder/app.js"></script>
+    <script>
+        window.applicationRoot = "/";
+    </script>
+
+    <!-- build:js(app/) ../../../scripts/page-builder/main.min.js -->
+    <script src="../scripts/page-builder/main.js"></script>
     <!-- endbuild -->
 </body>
 </html>

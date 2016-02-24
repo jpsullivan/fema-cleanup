@@ -49,9 +49,9 @@ module.exports = function(gulp, plugins, args, config, taskTarget, browserSync) 
             namespace: 'JST',
             processName: function (filePath) {
                 filePath = filePath.replace(/\\/g, "/"); // convert fwd-slash to backslash
-                 var lookup = 'ctech-fema/';
+                 var lookup = '/app/scripts/';
                 filePath = filePath.substring((filePath.indexOf(lookup) + lookup.length), filePath.length);
-                filePath = filePath.replace('app/scripts/page-builder/templates/', '');
+                filePath = filePath.replace('page-builder/templates/', '');
                 filePath = filePath.replace('.js', '');
                 return filePath;
             }
